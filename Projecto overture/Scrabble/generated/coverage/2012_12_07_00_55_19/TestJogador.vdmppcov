@@ -1,0 +1,128 @@
+class TestJogador
+
+
+operations
+
+	static public AssertTrue : bool ==> ()
+		AssertTrue(a) == return
+	pre a;
+
+	 static public testaPontosJogador: () ==> ()
+	 	testaPontosJogador () == (
+	 	
+	 	dcl j : Jogador := new Jogador(1,10);
+	 	
+	 	AssertTrue( j.getPontos() = 10);
+	 );
+	 
+	 
+	  static public testaPontos: () ==> ()
+       		testaPontos () == (
+       
+               dcl peca1 : Peca := new Peca('A',14);
+               dcl peca2 : Peca := new Peca('B',10);
+               dcl peca3 : Peca := new Peca('C',18);
+               dcl peca4 : Peca := new Peca('E',14);
+               dcl peca5 : Peca := new Peca('F',10);
+               dcl peca6 : Peca := new Peca('G',18);        
+               dcl peca7 : Peca := new Peca('H',40);
+       		   dcl j: Jogador := new Jogador();
+       
+               j.setMao([peca1,peca2,peca3,peca4,peca5,peca6,peca7]);
+       
+		       j.setPontos(20);
+		       AssertTrue (j.getPontos() = 20);
+       );
+       
+       
+       static public testaPontuacao: () ==> ()
+       			testaPontuacao () == (
+       
+               dcl peca1 : Peca := new Peca('A',14);
+               dcl peca2 : Peca := new Peca('B',10);
+               dcl peca3 : Peca := new Peca('C',18);
+               dcl peca4 : Peca := new Peca('E',14);
+               dcl peca5 : Peca := new Peca('F',10);
+               dcl peca6 : Peca := new Peca('G',18);        
+               dcl peca7 : Peca := new Peca('H',40);
+       		   dcl j: Jogador := new Jogador();
+       
+               j.setMao([peca1,peca2,peca3,peca4,peca5,peca6,peca7]);
+       
+		       j.setPontos(20);
+		       AssertTrue (j.getMao()(1).getPontuacao() = 14);
+		       AssertTrue (j.getMao()(2).getPontuacao() = 10);
+		       AssertTrue (j.getMao()(3).getPontuacao() = 18);
+		       AssertTrue (j.getMao()(4).getPontuacao() = 14);
+		       AssertTrue (j.getMao()(5).getPontuacao() = 10);
+		       AssertTrue (j.getMao()(6).getPontuacao() = 18);
+		       AssertTrue (j.getMao()(7).getPontuacao() = 40);
+      );
+       
+	 
+	 static public testaMaoJogador: () ==> ()
+	 	testaMaoJogador () == (
+	 	
+	 		dcl j : Jogador := new Jogador(1,20);
+	 		dcl peca1 : Peca := new Peca('A',14);
+	 		dcl peca2 : Peca := new Peca('B',10);
+	 		dcl peca3 : Peca := new Peca('C',18);
+	 		dcl peca4 : Peca := new Peca('A',14);
+	 		dcl peca5 : Peca := new Peca('B',10);
+	 		dcl peca6 : Peca := new Peca('C',18);
+	 		-- dcl peca7 : Peca := new Peca('a',14);
+	 		-- dcl peca8 : Peca := new Peca('b',10);
+	 		
+	 	j.setMao([peca1,peca2,peca3,peca4,peca5,peca6]);
+	 	AssertTrue( (len j.getMao()) = 6);
+	 		
+	 	-- Teste falha, pois o jogador não pode ter mais de 7 peças	
+	 	-- j.setMao([peca1,peca2,peca3,peca4,peca5,peca6,peca7,peca8]);
+	 	-- AssertTrue( (len j.getMao()) = 8);
+	 	
+	);
+	
+	
+		static public testaVerifLetraMao: () ==> ()
+						testaVerifLetraMao() == (
+						
+						dcl j : Jogador := new Jogador(1,10);
+				 		dcl peca1 : Peca := new Peca('A',14);
+				 		dcl peca2 : Peca := new Peca('B',10);
+				 		dcl peca3 : Peca := new Peca('C',18);
+				 		dcl peca4 : Peca := new Peca('D',14);
+				 		dcl peca5 : Peca := new Peca('A',10);
+		 				dcl peca6 : Peca := new Peca('F',18);
+		 				
+		 				j.setMao([peca1,peca2,peca3,peca4,peca5,peca6]);
+		 				
+		 				AssertTrue( j.verificaLetraMao('D') = true);
+		 				AssertTrue( j.verificaLetraMao('K') = false);
+				);
+				
+		static public testaTrocaLetraMao : () ==> ()
+						testaTrocaLetraMao() == (
+						
+						dcl j : Jogador := new Jogador(1,10);
+			 			dcl peca1 : Peca := new Peca('A',14);
+			 			dcl peca2 : Peca := new Peca('B',10);
+			 			dcl peca3 : Peca := new Peca('C',18);
+			 			dcl peca4 : Peca := new Peca('D',14);
+			 			dcl mao : seq of Peca := [];
+			 			
+			 			dcl nova_peca : Peca := new Peca('K',15);
+			 			
+			 			
+			 			j.setMao([peca1,peca2,peca3,peca4]);
+						j.trocaLetraMao('B',nova_peca);	
+						
+						mao := j.getMao();
+						
+						AssertTrue( (len j.getMao()) = 4);
+						
+						
+						);
+	
+	 	
+
+end TestJogador

@@ -1,0 +1,35 @@
+class Peca 
+	
+	
+instance variables 
+	
+	private letra: char;
+	private pontuacao: nat;
+
+	inv letra  in set {'A','B','C','Ç','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','W','Z'};
+	inv pontuacao > 0;
+	
+
+operations 
+		public Peca : char * nat ==> Peca
+		Peca(l,pont) == (letra := l; pontuacao := pont)
+			post letra  = l  and pontuacao = pont ;
+
+		public getLetra: () ==> char
+			getLetra() == return letra;
+			
+
+		public getPontuacao : () ==> nat
+			getPontuacao() == return pontuacao
+			post RESULT = pontuacao; 
+			
+		public setPontuacao: nat ==> ()
+			setPontuacao(pont) == 
+				pontuacao := pont;
+				
+				
+		public setLetra: char ==> ()
+			setLetra(letr) == 
+				letra := letr;
+				
+end Peca

@@ -1,0 +1,13 @@
+class TestAll
+
+	-- classe que corre todos os testes
+	
+	operations
+	
+		static public AssertTrue : bool ==> ()
+			AssertTrue(a) == return
+		pre a;
+
+
+
+end TestAll

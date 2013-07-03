@@ -1,0 +1,98 @@
+class TestTabuleiro
+
+operations
+
+	static public AssertTrue : bool ==> ()
+		AssertTrue(a) == return
+	pre a;
+
+	
+	static public testaTabuleiro: () ==> ()
+	 testaTabuleiro () == (
+	 
+	 	dcl t : Tabuleiro := new Tabuleiro();
+	 	dcl tam : nat := 0;
+	 	
+	 	tam := (card (dom t.getTabuleiro() ));
+	 	
+	 	-- 15*15 = 225
+	 	AssertTrue( tam = 225);
+	 
+	 );
+	 
+	 static public testaAddToPosOcupadas: () ==> ()
+	 	testaAddToPosOcupadas () == (
+	 	
+	 	dcl t : Tabuleiro := new Tabuleiro();
+	 	
+	 	t.addToPosOcupadas(mk_Tabuleiro`Posicao(2,3));
+	 	t.addToPosOcupadas(mk_Tabuleiro`Posicao(6,10));
+	 	AssertTrue( t.numPosOcupadas()  = 2);
+	 	
+	 	);
+	 
+	
+	 static public testaColocaPeca: () ==> ()
+		 	testaColocaPeca () == (
+		 	
+		 	dcl t : Tabuleiro := new Tabuleiro();
+		 	dcl peca1 : Peca := new Peca('H',10);
+		 	dcl peca2 : Peca := new Peca('A',20);
+		 	dcl peca3 : Peca := new Peca('T',30);
+		 
+		 	t.colocaPeca(peca1,1,1);
+		 	t.colocaPeca(peca2,14,1);
+		 	t.colocaPeca(peca3,15,1);
+		
+		 	AssertTrue( t.getCelula(1,1)  = 'H');
+		 	AssertTrue( t.getCelula(14,1)  = 'A');
+		 	AssertTrue( t.getCelula(15,1)  = 'T');
+	);
+	
+	static public testaCelOcupada: () ==> ()
+	 		testaCelOcupada() == (
+	 		
+	 		dcl t : Tabuleiro := new Tabuleiro();
+	 		dcl peca1 : Peca := new Peca('H',10);
+		 	dcl peca2 : Peca := new Peca('A',20);
+		 	
+		 	t.colocaPeca(peca1,3,2);
+		 	t.colocaPeca(peca2,4,5);
+		 	
+	 		AssertTrue( t.cel_ocupada(3,2) = true);
+	 		AssertTrue( t.cel_ocupada(4,5) = true);
+	 		AssertTrue( t.cel_ocupada(2,3) = false);
+	 		
+	 	);
+	 	
+	 	static public testaColocaMulti: () ==> ()
+	 		testaColocaMulti() == (
+	 		
+	 		dcl t : Tabuleiro := new Tabuleiro();
+	 		
+	 		t.colocaMultiplicador(2,2,'#');
+	 		t.colocaMultiplicador(5,3,'*');
+	 		t.colocaMultiplicador(8,10,'$');
+	 		-- teste que falha, pois nao respeita a pre-condicao
+	 		-- t.colocaMultiplicador(4,2,'d');
+		 	
+		 	AssertTrue( t.getCelula(2,2) = '#');
+		 	AssertTrue( t.getCelula(5,3) = '*');
+		 	AssertTrue( t.getCelula(8,10) = '$');
+	 	);
+	 	
+	 	static public testaVerificaMultiplicador: () ==> ()
+                testaVerificaMultiplicador () == (
+       
+                   dcl t : Tabuleiro := new Tabuleiro();
+                 
+                   t.colocaMultiplicador(5,2,'#');
+                   t.colocaMultiplicador(4,7,'*');
+                           
+                   AssertTrue (t.verificaMultiplicador(5,2) = true);
+                   AssertTrue (t.verificaMultiplicador(4,7) = true);
+                   AssertTrue (t.verificaMultiplicador(10,11) <> true);
+                );
+	 	
+
+end TestTabuleiro

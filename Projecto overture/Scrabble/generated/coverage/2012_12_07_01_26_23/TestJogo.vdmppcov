@@ -1,0 +1,163 @@
+class TestJogo
+
+
+	operations
+
+		static public AssertTrue : bool ==> ()
+			AssertTrue(a) == return
+		pre a;
+		
+		static public testaCriarJogadores: () ==> ()
+       		testaCriarJogadores () == (
+       
+       	   dcl tmpJogs : seq of Jogador := [];
+           dcl jg: Jogo := new Jogo(tmpJogs);
+           dcl peca1 : Peca := new Peca('T',14);
+	       dcl peca2 : Peca := new Peca('J',10);
+	       dcl peca3 : Peca := new Peca('E',18);
+       	   dcl tmp2 : seq of Peca := [peca1,peca2];
+           dcl tmp1 : seq of Peca := [peca3];
+          
+          jg.criaJogadores(tmp1,tmp2);
+	       
+	       AssertTrue(len jg.getJogadores() = 3);
+       );
+       
+       static public testaCriaBaralho: () ==> ()
+       		testaCriaBaralho () == (
+       
+      		  dcl players: seq of Jogador := [];
+		      dcl jgb: Jogo := new Jogo(players);
+		     
+			   AssertTrue(jgb.getBaralho()(1).getLetra() = 'A');
+		       AssertTrue(jgb.getBaralho()(16).getPontuacao() = 3);
+		       AssertTrue (jgb.getBaralho()(120).getLetra() = '_');
+		       AssertTrue(jgb.getBaralho()(2).getPontuacao() <> 2);
+       
+       );
+       
+       static public testaCriaMao: () ==> ()
+   				 testaCriaMao () == (
+   				 
+   				  dcl j : Jogo := new Jogo();
+   				  dcl mao_j1: seq of Peca := [];
+   				  dcl j1 : Jogador := new Jogador(1);
+   				  
+   				  mao_j1 := j.criaMaoJoador();
+   				  j1.setMao(mao_j1);
+   				  
+   				   AssertTrue( len j1.getMao() = 7);
+       		);
+       
+       
+       static public testaCompletaMao: () ==> ()
+       		testaCompletaMao () == (
+       
+	       dcl peca1 : Peca := new Peca('T',14);
+	       dcl peca2 : Peca := new Peca('J',10);
+	       dcl peca3 : Peca := new Peca('E',18);
+	       dcl peca4 : Peca := new Peca('M',14);
+	       dcl peca5 : Peca := new Peca('R',10);
+	       dcl peca6 : Peca := new Peca('I',18);        
+	       dcl peca7 : Peca := new Peca('O',40);
+       	   dcl peca8 : Peca := new Peca('A',14);
+           dcl peca9 : Peca := new Peca('B',10);
+           dcl peca10 : Peca := new Peca('C',18);
+       	   dcl peca11: Peca := new Peca('E',14);
+           dcl peca12 : Peca := new Peca('F',10);
+           dcl peca13: Peca := new Peca('G',18);        
+           dcl peca14: Peca := new Peca('H',40);
+           dcl sim_baralho : seq of Peca := [peca1, peca2, peca3, peca4, peca5, peca6, peca7, peca8, peca9, peca10, peca11, peca12, peca13, peca14];
+       	   dcl jgc: Jogo := new Jogo();
+       	   dcl tmp5 : seq of Peca := [];
+           dcl tmp6 : seq of Peca := [];
+               
+       
+	       jgc.criaJogadores(tmp5,tmp6);
+	       
+	       jgc.setBaralho(sim_baralho);
+	       
+	       jgc.preencheMao(2);
+	       
+	       AssertTrue( len (jgc.getJogadores()(2).getMao()) = 7 );
+       
+       );
+		
+		
+		static public testaComparaPecas: () ==> ()
+	 		testaComparaPecas () == (
+	 	
+		 	dcl jogo : Jogo := new Jogo();
+		 	dcl peca1 : Peca := new Peca('B',10);
+		 	dcl peca2 : Peca := new Peca('D',20);
+		 	dcl peca3 : Peca := new Peca('B',30);
+		 	
+		 	AssertTrue( jogo.comparaPecas(peca1,peca2) = false);
+		 	AssertTrue( jogo.comparaPecas(peca1,peca3) = true);
+	 );
+	 
+	 static public testaComparaPalavras: () ==> ()
+	 				testaComparaPalavras() == (
+	 				
+	 				dcl jogo : Jogo := new Jogo();
+	 				dcl pal1 : seq of char := ['c','a','s','a'];
+	 				dcl pal2 : seq of char := ['c','a','s','a'];
+	 				dcl pal3 : seq of char := ['c','a','s','a','l'];
+	 				dcl pal4 : seq of char := ['c','a','s','t'];
+	 				
+	 				
+	 				AssertTrue(jogo.comparaPalavras(pal1,pal2) = true);
+	 				AssertTrue(jogo.comparaPalavras(pal1,pal3) = false);
+	 				AssertTrue(jogo.comparaPalavras(pal1,pal4) = false);
+	 				
+	 		);
+	 		
+	  static public testaPalDicionario: () ==> ()
+	 				testaPalDicionario() == (
+	 				
+	 				dcl jogo : Jogo := new Jogo();
+	 				dcl pal1 : seq of char := ['c','a','s','a'];
+	 				dcl pal2 : seq of char := ['k','a','s','a'];
+	 				dcl dicionario : set of seq of char := {['c','a','s','a'],['c','a','s','a','l'],['c','a','s','t']};
+	 				
+	 				AssertTrue(jogo.verificaPalDicionario(pal1,dicionario) = true);
+	 				AssertTrue(jogo.verificaPalDicionario(pal2,dicionario) = false);
+	 			);
+	 			
+	   static public testaPassaVez: () ==> ()
+	 				testaPassaVez() == (
+	 			
+	 			dcl jogo : Jogo := new Jogo();
+	 			dcl jog1 : Jogador := new Jogador(1);
+	 			dcl jog2 : Jogador := new Jogador(2);
+	 			
+	 			jogo.setJogadores([jog1,jog2]);
+	 			
+	 			jogo.passarVez(jog1);
+	 			jogo.passarVez(jog2);
+	 			
+	 			AssertTrue( jogo.getVez() = 1);
+	 	);	
+	 	
+	 	 static public testaRetiraPecaMao: () ==> ()
+	 				testaRetiraPecaMao() == (
+	 	 
+	 			dcl jogo : Jogo := new Jogo();
+	 			dcl jog1 : Jogador := new Jogador(1);
+	 			dcl jog2 : Jogador := new Jogador(2);
+	 			dcl peca1 : Peca := new Peca('B',10);
+		 		dcl peca2 : Peca := new Peca('D',20);
+		 		dcl mao_jog1 : seq of Peca := [];
+		 		
+		 		jog1.setMao([peca1,peca2]);
+	 		
+	 			jogo.setJogadores([jog1,jog2]);
+	 			
+	 			jogo.retiraPecaMao(jog1,peca1);
+	 			mao_jog1 := jog1.getMao();
+	 			
+	 			AssertTrue( len mao_jog1 = 1);
+	 		);
+
+
+end TestJogo

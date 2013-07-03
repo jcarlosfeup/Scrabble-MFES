@@ -1,0 +1,195 @@
+class Tabuleiro 
+	
+	-- NOTAS: seq permite repetidos, set nao
+	types 
+		public Posicao:: x:nat  y:nat;
+	
+	instance variables 
+		
+		private tabuleiro : map Posicao to Celula := {|->};
+        private posicoesOcupadas : set of Posicao := {};
+	
+	-- O tabuleiro e constituido por 225 celulas
+	inv (card (dom tabuleiro))  <= 226;
+	
+	operations 
+		
+		public Tabuleiro:() ==> Tabuleiro
+        		Tabuleiro() == (
+             
+           	dcl x:nat :=0; 
+            dcl y:nat :=0;
+              
+              while(y < 15) do (
+       		--for all y in set {0,...,19} do ( 
+          		 while(x < 15) do(
+              		 tabuleiro := tabuleiro ++ {mk_Posicao(x,y)|-> new Celula('.')};
+              		 x := x+1;
+           		 );
+                 
+                 x := 0;
+                 y := y+1;           
+       		);
+       		
+       		 -- * - duplica valor letra
+       		colocaMultiplicador(0,3,'*');
+       		colocaMultiplicador(3,0,'*');
+       		colocaMultiplicador(11,0,'*');
+       		colocaMultiplicador(0,11,'*');
+       		colocaMultiplicador(14,3,'*');
+       		colocaMultiplicador(3,14,'*');
+       		colocaMultiplicador(11,14,'*');
+       		colocaMultiplicador(14,11,'*');
+       		colocaMultiplicador(6,6,'*');
+       		colocaMultiplicador(8,8,'*');
+       		colocaMultiplicador(8,6,'*');
+       		colocaMultiplicador(6,8,'*');
+       		colocaMultiplicador(6,2,'*');
+       		colocaMultiplicador(2,6,'*');
+       		colocaMultiplicador(7,4,'*');
+       		colocaMultiplicador(4,7,'*');
+       		colocaMultiplicador(8,2,'*');
+       		colocaMultiplicador(2,8,'*');
+       		colocaMultiplicador(12,6,'*');
+       		colocaMultiplicador(6,12,'*');
+       		colocaMultiplicador(11,7,'*');
+       		colocaMultiplicador(7,11,'*');
+       		colocaMultiplicador(12,8,'*');
+       		colocaMultiplicador(8,12,'*');
+       		
+       		-- # - triplica valor letra
+			colocaMultiplicador(1,5,'#');
+			colocaMultiplicador(5,1,'#');
+			colocaMultiplicador(9,1,'#');
+			colocaMultiplicador(1,9,'#');
+			colocaMultiplicador(5,13,'#');
+			colocaMultiplicador(13,5,'#');
+			colocaMultiplicador(9,13,'#');
+			colocaMultiplicador(13,9,'#');
+			colocaMultiplicador(5,5,'#');
+			colocaMultiplicador(9,9,'#');
+			colocaMultiplicador(5,9,'#');
+			colocaMultiplicador(9,5,'#');
+        	
+        	
+        	-- $ - duplica valor palavra
+			colocaMultiplicador(1,1,'$');
+			colocaMultiplicador(1,13,'$');
+			colocaMultiplicador(2,2,'$');
+			colocaMultiplicador(2,12,'$');
+			colocaMultiplicador(3,3,'$');
+			colocaMultiplicador(3,11,'$');
+			colocaMultiplicador(4,4,'$');
+			colocaMultiplicador(4,10,'$');
+			colocaMultiplicador(7,7,'$');
+			colocaMultiplicador(10,4,'$');
+			colocaMultiplicador(10,10,'$');
+			colocaMultiplicador(11,3,'$');
+			colocaMultiplicador(11,11,'$');
+			colocaMultiplicador(12,2,'$');
+			colocaMultiplicador(12,12,'$');
+			colocaMultiplicador(13,1,'$');
+			colocaMultiplicador(13,13,'$');
+			
+			-- % - triplica valor palavra
+       		colocaMultiplicador(0,0,'%');
+       		colocaMultiplicador(0,7,'%');
+       		colocaMultiplicador(0,14,'%');
+       		colocaMultiplicador(7,0,'%');
+       		colocaMultiplicador(7,14,'%');
+       		colocaMultiplicador(14,0,'%');
+       		colocaMultiplicador(14,7,'%');
+       		colocaMultiplicador(14,14,'%');
+			
+			
+			return self;
+         );
+        
+        public getTabuleiro : () ==> map Posicao to Celula
+        	getTabuleiro() == return tabuleiro;
+        	
+        public setTabuleiro : map Posicao to Celula ==> ()
+        		setTabuleiro(tab) == tabuleiro := tab;
+        		
+        		
+        public addToPosOcupadas : Posicao ==> ()
+        	addToPosOcupadas(pos) == 
+        		posicoesOcupadas := posicoesOcupadas union {pos};
+        		
+        public numPosOcupadas : () ==> nat
+        	numPosOcupadas() == (
+        		return (card posicoesOcupadas);
+        );
+        	
+        public colocaPeca: Peca * nat * nat ==> ()
+        	colocaPeca(peca,pos_horiz,pos_vert) == (
+        	
+        		tabuleiro := tabuleiro ++ { mk_Posicao(pos_horiz,pos_vert) |-> new Celula(peca.getLetra() ) };
+        	
+        );
+        
+        -- Dado um x e um y devolve o caracter que estiver nessa posicao
+        public getCelula: nat * nat ==> char
+        		getCelula(pos_x,pos_y) == (
+        		
+        		dcl posicao : Posicao := mk_Posicao(pos_x,pos_y);
+        		dcl simbolo : char := ' ';
+        		dcl cel : Celula := new Celula(' ');
+        		
+        		cel := tabuleiro(posicao);
+        		simbolo := cel.getSimbolo();
+        		
+        		return simbolo;
+        );
+        
+         public cel_ocupada: nat * nat ==> bool
+        	cel_ocupada(pos_x,pos_y) == (
+        	
+        	dcl posicao : Posicao := mk_Posicao(pos_x,pos_y);
+        	dcl cel : Celula := new Celula(' ');
+        	dcl simbolo : char := ' ';
+        	dcl result : bool := false;
+        	
+        	cel := tabuleiro(posicao);
+        	simbolo := cel.getSimbolo();
+        	
+        	if(simbolo = '.' or simbolo ='#' or simbolo ='*' or simbolo = '%' or simbolo = '$')
+        		
+        		then result := false
+        	else result := true;
+        	
+        	return result;
+        );	
+        
+        -- * - duplica valor letra
+        -- # - triplica valor letra
+        -- $ - duplica valor palavra
+        -- % - triplica valor palavra
+       public colocaMultiplicador: nat * nat * char ==> ()
+        	colocaMultiplicador(pos_x,pos_y,simbolo) == (
+        	
+        	
+        		tabuleiro := tabuleiro ++ { mk_Posicao(pos_x,pos_y) |-> new Celula(simbolo) };
+        	)
+        	pre simbolo in set {'#','*','$','%'};
+        
+       
+       public verificaMultiplicador: nat * nat ==> bool 
+                verificaMultiplicador(pos_x,pos_y) == (
+                        
+                dcl posicao : Posicao := mk_Posicao(pos_x,pos_y);
+           		dcl cel : Celula := new Celula(' ');
+                dcl simbolo : char := ' ';
+                
+                cel := tabuleiro(posicao);
+                simbolo := cel.getSimbolo();
+                
+                if simbolo = '#' then return true;
+                if simbolo = '*' then return true;
+                if simbolo = '%' then return true;
+                if simbolo = '$' then return true 
+                	else return false                   
+              );
+     	
+        
+end Tabuleiro

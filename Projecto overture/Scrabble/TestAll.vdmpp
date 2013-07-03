@@ -1,0 +1,25 @@
+class TestAll
+
+	-- classe que corre todos os testes
+	
+	operations
+	
+		static public AssertTrue : bool ==> ()
+			AssertTrue(a) == return
+		pre a;
+
+
+		 static public runAllTests: () ==> ()
+						runAllTests() == (
+						
+						dcl teste_jogador : TestJogador := new TestJogador();
+						dcl teste_tabuleiro : TestTabuleiro := new TestTabuleiro();
+						dcl teste_jogo : TestJogo := new TestJogo();
+						
+						teste_jogador.runAllJogadorTests();
+						teste_tabuleiro.runAllTabuleiroTests();
+						teste_jogo.runAllJogoTests();
+				);
+
+
+end TestAll

@@ -1,0 +1,103 @@
+class Jogador 
+	
+
+	instance variables 
+		
+		private pontos: nat := 0;
+		private id: nat1 := 1;
+		--private orientacao: char := ' ';
+		private mao: seq of Peca := [];
+		
+		inv len mao <= 7;
+		inv id = 1 or id = 2;
+		inv pontos >= 0;
+		--inv orientacao in set {'S','E'};
+	
+	operations 
+		
+		public Jogador : nat1 * nat  ==> Jogador
+			Jogador(id_n,pont) == (
+			
+			id := id_n;
+			pontos := pont;
+			-- TODO atribuir mao aleatoria ao jogador
+			);
+			
+		public getID : () ==> nat1
+			getID() == return id;
+			
+		public setID : nat1 ==> ()
+			setID(id_novo) == id := id_novo;
+		
+		public getPontos : () ==> nat
+			getPontos() == return pontos;
+			
+		public setPontos : nat ==> ()
+			setPontos(pts) == pontos := pts;
+			
+		public getMao : () ==> seq of Peca
+			getMao() == return mao;
+			
+		
+		public setMao: seq of Peca ==> ()
+			setMao(nova_mao) == mao := nova_mao
+			pre nova_mao <> mao;
+			
+		  
+		  -- verifica se a letra se encontra na mão
+          public verificaLetraMao: char  ==> bool 
+          			verificaLetraMao(letra) ==
+          			(
+          			dcl tam_mao : nat := len mao;
+          			dcl result : bool := false;
+          			dcl i : nat := 1;
+          			
+          			while(i <= tam_mao) do(
+          			
+          				if( mao(i).getLetra() = letra)
+          						then result := true;
+          				
+          				i := i+1;
+          			);
+          			
+          				return result;	
+          			);
+          			
+          	public verificaLetrPosMao : char * nat ==> bool
+          				verificaLetrPosMao(letra,pos) == (
+          				
+          				dcl result : bool := false;
+          					
+          				if( mao(pos).getLetra() = letra)
+          					then result := true;	
+          				
+          				
+          				return result;
+          			);
+          			
+          			
+          			
+        public trocaLetraMao: char * Peca ==> ()
+          		trocaLetraMao(letra_p_trocar,nova_peca) == (
+          		
+          			dcl tam_mao : nat := len mao;
+          			dcl nova_mao : seq of Peca := [];
+          			dcl i : nat := 1;
+          			
+          			while(i <= tam_mao) do (
+          			
+          			if(verificaLetrPosMao(letra_p_trocar,i) = true )
+          				then skip
+          				else nova_mao := nova_mao^[mao(i)];
+          				
+          				i := i+1;
+          			);
+          				
+    				nova_mao := nova_mao^[nova_peca];
+          			
+          			setMao(nova_mao);
+          		);
+          	   
+         
+           
+end Jogador

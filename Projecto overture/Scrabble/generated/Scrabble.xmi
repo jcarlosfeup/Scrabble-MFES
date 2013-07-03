@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+  <xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.0" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <xmi:Documentation xmi:Exporter="Enterprise Architect" xmi:ExporterVersion="6.5"/>
+    <uml:Model name="Root" xmi:type="uml:Model" xmi:id="VDM.2">
+      <ownedMember xmi:type="uml:Package" xmi:id="VDM.0" name="VDM Generated model">
+        <ownedMember name="bool" visibility="public" isAbstract="false" isActive="false" isLeaf="false" xmi:id="VDM.3" xmi:type="uml:Class"/>
+        <ownedMember name="int" visibility="public" isAbstract="false" isActive="false" isLeaf="false" xmi:id="VDM.4" xmi:type="uml:Class"/>
+        <ownedMember name="char" visibility="public" isAbstract="false" isActive="false" isLeaf="false" xmi:id="VDM.5" xmi:type="uml:Class"/>
+        <ownedMember name="unlimitedNatural" visibility="public" isAbstract="false" isActive="false" isLeaf="false" xmi:id="VDM.6" xmi:type="uml:Class"/>
+        <ownedMember name="String" visibility="public" isAbstract="false" isActive="false" isLeaf="false" xmi:id="VDM.7" xmi:type="uml:Class"/>
+        <ownedMember name="NotSupportedType" visibility="public" isAbstract="false" isActive="false" isLeaf="false" xmi:id="VDM.8" xmi:type="uml:Class"/>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="Jogador" visibility="public" xmi:id="VDM.13" xmi:type="uml:Class">
+          <ownedAttribute name="pontos" ownerScope="instance" isReadOnly="false" isStatic="false" visibility="private" xmi:id="VDM.22" xmi:type="uml:Property" isOrdered="false">
+            <lowerValue value="1" xmi:id="VDM.23" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="1" xmi:id="VDM.24" xmi:type="uml:LiteralInteger"/>
+            <defaultValue xmi:type="uml:LiteralInteger" value="0" xmi:id="VDM.25"/>
+            <type xmi:idref="VDM.4"/>
+          </ownedAttribute>
+          <ownedAttribute name="id" ownerScope="instance" isReadOnly="false" isStatic="false" visibility="private" xmi:id="VDM.26" xmi:type="uml:Property" isOrdered="false">
+            <lowerValue value="1" xmi:id="VDM.27" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="1" xmi:id="VDM.28" xmi:type="uml:LiteralInteger"/>
+            <defaultValue xmi:type="uml:LiteralInteger" value="1" xmi:id="VDM.29"/>
+            <type xmi:idref="VDM.4"/>
+          </ownedAttribute>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="verificaLetrPosMao" ownerScope="instance" visibility="public" xmi:id="VDM.30" xmi:type="uml:Operation">
+            <ownedParameter name="letra" direction="in" xmi:id="VDM.31" type="VDM.5"/>
+            <ownedParameter name="pos" direction="in" xmi:id="VDM.32" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.33" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setID" ownerScope="instance" visibility="public" xmi:id="VDM.34" xmi:type="uml:Operation">
+            <ownedParameter name="id_novo" direction="in" xmi:id="VDM.35" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="trocaLetraMao" ownerScope="instance" visibility="public" xmi:id="VDM.36" xmi:type="uml:Operation">
+            <ownedParameter name="letra_p_trocar" direction="in" xmi:id="VDM.37" type="VDM.5"/>
+            <ownedParameter name="nova_peca" direction="in" xmi:id="VDM.38" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getID" ownerScope="instance" visibility="public" xmi:id="VDM.39" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.40" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getMao" ownerScope="instance" visibility="public" xmi:id="VDM.41" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.42" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setPontos" ownerScope="instance" visibility="public" xmi:id="VDM.43" xmi:type="uml:Operation">
+            <ownedParameter name="pts" direction="in" xmi:id="VDM.44" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="Jogador" ownerScope="instance" visibility="public" xmi:id="VDM.45" xmi:type="uml:Operation">
+            <ownedParameter name="id_n" direction="in" xmi:id="VDM.46" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.47" type="VDM.13"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="verificaLetraMaoPos" ownerScope="instance" visibility="public" xmi:id="VDM.48" xmi:type="uml:Operation">
+            <ownedParameter name="letra" direction="in" xmi:id="VDM.49" type="VDM.5"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.50" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="verificaLetraMao" ownerScope="instance" visibility="public" xmi:id="VDM.51" xmi:type="uml:Operation">
+            <ownedParameter name="letra" direction="in" xmi:id="VDM.52" type="VDM.5"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.53" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setMao" ownerScope="instance" visibility="public" xmi:id="VDM.54" xmi:type="uml:Operation">
+            <ownedParameter name="nova_mao" direction="in" xmi:id="VDM.55" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getPontos" ownerScope="instance" visibility="public" xmi:id="VDM.56" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.57" type="VDM.4"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="TestJogo" visibility="public" xmi:id="VDM.14" xmi:type="uml:Class">
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaComparaPecas" ownerScope="instance" visibility="public" xmi:id="VDM.58" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaCriarJogadores" ownerScope="instance" visibility="public" xmi:id="VDM.59" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaPassaVez" ownerScope="instance" visibility="public" xmi:id="VDM.60" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="runAllJogoTests" ownerScope="instance" visibility="public" xmi:id="VDM.61" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaComparaPalavras" ownerScope="instance" visibility="public" xmi:id="VDM.62" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="AssertTrue" ownerScope="instance" visibility="public" xmi:id="VDM.63" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.64" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaPalDicionario" ownerScope="instance" visibility="public" xmi:id="VDM.65" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaJogada" ownerScope="instance" visibility="public" xmi:id="VDM.66" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaRetiraPecaMao" ownerScope="instance" visibility="public" xmi:id="VDM.67" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaRetiraPecaBaralho" ownerScope="instance" visibility="public" xmi:id="VDM.68" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaCriaMao" ownerScope="instance" visibility="public" xmi:id="VDM.69" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaCriaBaralho" ownerScope="instance" visibility="public" xmi:id="VDM.70" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaCompletaMao" ownerScope="instance" visibility="public" xmi:id="VDM.71" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaJogo" ownerScope="instance" visibility="public" xmi:id="VDM.72" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaJogada2" ownerScope="instance" visibility="public" xmi:id="VDM.73" xmi:type="uml:Operation"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="String" visibility="public" xmi:id="VDM.9" xmi:type="uml:Class"/>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="Peca" visibility="public" xmi:id="VDM.10" xmi:type="uml:Class">
+          <ownedAttribute name="pontuacao" ownerScope="instance" isReadOnly="false" isStatic="false" visibility="private" xmi:id="VDM.74" xmi:type="uml:Property" isOrdered="false">
+            <lowerValue value="1" xmi:id="VDM.75" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="1" xmi:id="VDM.76" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="VDM.4"/>
+          </ownedAttribute>
+          <ownedAttribute name="letra" ownerScope="instance" isReadOnly="false" isStatic="false" visibility="private" xmi:id="VDM.77" xmi:type="uml:Property" isOrdered="false">
+            <lowerValue value="1" xmi:id="VDM.78" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="1" xmi:id="VDM.79" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="VDM.5"/>
+          </ownedAttribute>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getLetra" ownerScope="instance" visibility="public" xmi:id="VDM.80" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.81" type="VDM.5"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="Peca" ownerScope="instance" visibility="public" xmi:id="VDM.82" xmi:type="uml:Operation">
+            <ownedParameter name="l" direction="in" xmi:id="VDM.83" type="VDM.5"/>
+            <ownedParameter name="pont" direction="in" xmi:id="VDM.84" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.85" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setPontuacao" ownerScope="instance" visibility="public" xmi:id="VDM.86" xmi:type="uml:Operation">
+            <ownedParameter name="pont" direction="in" xmi:id="VDM.87" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getPontuacao" ownerScope="instance" visibility="public" xmi:id="VDM.88" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.89" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setLetra" ownerScope="instance" visibility="public" xmi:id="VDM.90" xmi:type="uml:Operation">
+            <ownedParameter name="letr" direction="in" xmi:id="VDM.91" type="VDM.5"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="Jogo" visibility="public" xmi:id="VDM.16" xmi:type="uml:Class">
+          <ownedAttribute name="vez" ownerScope="instance" isReadOnly="false" isStatic="false" visibility="private" xmi:id="VDM.92" xmi:type="uml:Property" isOrdered="false">
+            <lowerValue value="1" xmi:id="VDM.93" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="1" xmi:id="VDM.94" xmi:type="uml:LiteralInteger"/>
+            <defaultValue xmi:type="uml:LiteralInteger" value="1" xmi:id="VDM.95"/>
+            <type xmi:idref="VDM.4"/>
+          </ownedAttribute>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setBaralho" ownerScope="instance" visibility="public" xmi:id="VDM.96" xmi:type="uml:Operation">
+            <ownedParameter name="bar" direction="in" xmi:id="VDM.97" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="jogada" ownerScope="instance" visibility="public" xmi:id="VDM.98" xmi:type="uml:Operation">
+            <ownedParameter name="jogador" direction="in" xmi:id="VDM.99" type="VDM.13"/>
+            <ownedParameter name="pos_x" direction="in" xmi:id="VDM.100" type="VDM.4"/>
+            <ownedParameter name="pos_y" direction="in" xmi:id="VDM.101" type="VDM.4"/>
+            <ownedParameter name="palavra" direction="in" xmi:id="VDM.102" type="VDM.9"/>
+            <ownedParameter name="orient" direction="in" xmi:id="VDM.103" type="VDM.5"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.104" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getTabuleiro" ownerScope="instance" visibility="public" xmi:id="VDM.105" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.106" type="VDM.15"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setVez" ownerScope="instance" visibility="public" xmi:id="VDM.107" xmi:type="uml:Operation">
+            <ownedParameter name="n_vez" direction="in" xmi:id="VDM.108" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="comparaPecas" ownerScope="instance" visibility="public" xmi:id="VDM.109" xmi:type="uml:Operation">
+            <ownedParameter name="peca1" direction="in" xmi:id="VDM.110" type="VDM.10"/>
+            <ownedParameter name="peca2" direction="in" xmi:id="VDM.111" type="VDM.10"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.112" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="Jogo" ownerScope="instance" visibility="public" xmi:id="VDM.113" xmi:type="uml:Operation">
+            <ownedParameter name="jogs" direction="in" xmi:id="VDM.114" type="VDM.13"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.115" type="VDM.16"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setTabuleiro" ownerScope="instance" visibility="public" xmi:id="VDM.116" xmi:type="uml:Operation">
+            <ownedParameter name="tab" direction="in" xmi:id="VDM.117" type="VDM.15"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="actualizaPontos" ownerScope="instance" visibility="public" xmi:id="VDM.118" xmi:type="uml:Operation">
+            <ownedParameter name="pts_adicionar" direction="in" xmi:id="VDM.119" type="VDM.4"/>
+            <ownedParameter name="jog" direction="in" xmi:id="VDM.120" type="VDM.13"/>
+            <ownedParameter name="pos1" direction="in" xmi:id="VDM.121" type="VDM.4"/>
+            <ownedParameter name="pos2" direction="in" xmi:id="VDM.122" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="verificaPalDicionario" ownerScope="instance" visibility="public" xmi:id="VDM.123" xmi:type="uml:Operation">
+            <ownedParameter name="palavra" direction="in" xmi:id="VDM.124" type="VDM.9"/>
+            <ownedParameter name="dicion" direction="in" xmi:id="VDM.125" type="VDM.5"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.126" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="comparaPalavras" ownerScope="instance" visibility="public" xmi:id="VDM.127" xmi:type="uml:Operation">
+            <ownedParameter name="pal1" direction="in" xmi:id="VDM.128" type="VDM.9"/>
+            <ownedParameter name="pal2" direction="in" xmi:id="VDM.129" type="VDM.9"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.130" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getJogadores" ownerScope="instance" visibility="public" xmi:id="VDM.131" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.132" type="VDM.13"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setJogadores" ownerScope="instance" visibility="public" xmi:id="VDM.133" xmi:type="uml:Operation">
+            <ownedParameter name="jogs" direction="in" xmi:id="VDM.134" type="VDM.13"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="Jogo" ownerScope="instance" visibility="public" xmi:id="VDM.135" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.136" type="VDM.16"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="criar_baralho" ownerScope="instance" visibility="public" xmi:id="VDM.137" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getVez" ownerScope="instance" visibility="public" xmi:id="VDM.138" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.139" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="criaMaoJoador" ownerScope="instance" visibility="public" xmi:id="VDM.140" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.141" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="criaJogadores" ownerScope="instance" visibility="public" xmi:id="VDM.142" xmi:type="uml:Operation">
+            <ownedParameter name="m1" direction="in" xmi:id="VDM.143" type="VDM.10"/>
+            <ownedParameter name="m2" direction="in" xmi:id="VDM.144" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="passarVez" ownerScope="instance" visibility="public" xmi:id="VDM.145" xmi:type="uml:Operation">
+            <ownedParameter name="jog" direction="in" xmi:id="VDM.146" type="VDM.13"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getBaralho" ownerScope="instance" visibility="public" xmi:id="VDM.147" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.148" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getDicionario" ownerScope="instance" visibility="public" xmi:id="VDM.149" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.150" type="VDM.9"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="retiraPecaMao" ownerScope="instance" visibility="public" xmi:id="VDM.151" xmi:type="uml:Operation">
+            <ownedParameter name="jogador" direction="in" xmi:id="VDM.152" type="VDM.13"/>
+            <ownedParameter name="pec" direction="in" xmi:id="VDM.153" type="VDM.10"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="preencheMao" ownerScope="instance" visibility="public" xmi:id="VDM.154" xmi:type="uml:Operation">
+            <ownedParameter name="i" direction="in" xmi:id="VDM.155" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setDicionario" ownerScope="instance" visibility="public" xmi:id="VDM.156" xmi:type="uml:Operation">
+            <ownedParameter name="dic" direction="in" xmi:id="VDM.157" type="VDM.9"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="retiraPecaBaralho" ownerScope="instance" visibility="public" xmi:id="VDM.158" xmi:type="uml:Operation">
+            <ownedParameter name="pos_aleat" direction="in" xmi:id="VDM.159" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.160" type="VDM.10"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="Tabuleiro" visibility="public" xmi:id="VDM.15" xmi:type="uml:Class">
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="Tabuleiro" ownerScope="instance" visibility="public" xmi:id="VDM.161" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.162" type="VDM.15"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="numPosOcupadas" ownerScope="instance" visibility="public" xmi:id="VDM.163" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.164" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="addToPosOcupadas" ownerScope="instance" visibility="public" xmi:id="VDM.165" xmi:type="uml:Operation">
+            <ownedParameter name="pos" direction="in" xmi:id="VDM.166" type="VDM.19"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getTabuleiro" ownerScope="instance" visibility="public" xmi:id="VDM.167" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.168" type="VDM.12"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="colocaMultiplicador" ownerScope="instance" visibility="public" xmi:id="VDM.169" xmi:type="uml:Operation">
+            <ownedParameter name="pos_x" direction="in" xmi:id="VDM.170" type="VDM.4"/>
+            <ownedParameter name="pos_y" direction="in" xmi:id="VDM.171" type="VDM.4"/>
+            <ownedParameter name="simbolo" direction="in" xmi:id="VDM.172" type="VDM.5"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setTabuleiro" ownerScope="instance" visibility="public" xmi:id="VDM.173" xmi:type="uml:Operation">
+            <ownedParameter name="tab" direction="in" xmi:id="VDM.174" type="VDM.12"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getCelula" ownerScope="instance" visibility="public" xmi:id="VDM.175" xmi:type="uml:Operation">
+            <ownedParameter name="pos_x" direction="in" xmi:id="VDM.176" type="VDM.4"/>
+            <ownedParameter name="pos_y" direction="in" xmi:id="VDM.177" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.178" type="VDM.5"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="colocaPeca" ownerScope="instance" visibility="public" xmi:id="VDM.179" xmi:type="uml:Operation">
+            <ownedParameter name="peca" direction="in" xmi:id="VDM.180" type="VDM.10"/>
+            <ownedParameter name="pos_horiz" direction="in" xmi:id="VDM.181" type="VDM.4"/>
+            <ownedParameter name="pos_vert" direction="in" xmi:id="VDM.182" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="cel_ocupada" ownerScope="instance" visibility="public" xmi:id="VDM.183" xmi:type="uml:Operation">
+            <ownedParameter name="pos_x" direction="in" xmi:id="VDM.184" type="VDM.4"/>
+            <ownedParameter name="pos_y" direction="in" xmi:id="VDM.185" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.186" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="verificaMultiplicador" ownerScope="instance" visibility="public" xmi:id="VDM.187" xmi:type="uml:Operation">
+            <ownedParameter name="pos_x" direction="in" xmi:id="VDM.188" type="VDM.4"/>
+            <ownedParameter name="pos_y" direction="in" xmi:id="VDM.189" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.190" type="VDM.3"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="TestJogador" visibility="public" xmi:id="VDM.11" xmi:type="uml:Class">
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="AssertTrue" ownerScope="instance" visibility="public" xmi:id="VDM.191" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.192" type="VDM.3"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="runAllJogadorTests" ownerScope="instance" visibility="public" xmi:id="VDM.193" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaPontuacao" ownerScope="instance" visibility="public" xmi:id="VDM.194" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaVerifLetraMao" ownerScope="instance" visibility="public" xmi:id="VDM.195" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaPontosJogador" ownerScope="instance" visibility="public" xmi:id="VDM.196" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaPontos" ownerScope="instance" visibility="public" xmi:id="VDM.197" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaMaoJogador" ownerScope="instance" visibility="public" xmi:id="VDM.198" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaTrocaLetraMao" ownerScope="instance" visibility="public" xmi:id="VDM.199" xmi:type="uml:Operation"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="MATH" visibility="public" xmi:id="VDM.17" xmi:type="uml:Class">
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="srand" ownerScope="instance" visibility="public" xmi:id="VDM.200" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.201" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="cos" ownerScope="instance" visibility="public" xmi:id="VDM.202" xmi:type="uml:Operation">
+            <ownedParameter name="v" direction="in" xmi:id="VDM.203" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.204" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="ln" ownerScope="instance" visibility="public" xmi:id="VDM.205" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.206" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.207" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="srand2" ownerScope="instance" visibility="public" xmi:id="VDM.208" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.209" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.210" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="cot" ownerScope="instance" visibility="public" xmi:id="VDM.211" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.212" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.213" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="exp" ownerScope="instance" visibility="public" xmi:id="VDM.214" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.215" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.216" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="tan" ownerScope="instance" visibility="public" xmi:id="VDM.217" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.218" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.219" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="asin" ownerScope="instance" visibility="public" xmi:id="VDM.220" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.221" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.222" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="rand" ownerScope="instance" visibility="public" xmi:id="VDM.223" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.224" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.225" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="acos" ownerScope="instance" visibility="public" xmi:id="VDM.226" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.227" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.228" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="atan" ownerScope="instance" visibility="public" xmi:id="VDM.229" xmi:type="uml:Operation">
+            <ownedParameter name="v" direction="in" xmi:id="VDM.230" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.231" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="sin" ownerScope="instance" visibility="public" xmi:id="VDM.232" xmi:type="uml:Operation">
+            <ownedParameter name="v" direction="in" xmi:id="VDM.233" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.234" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="acot" ownerScope="instance" visibility="public" xmi:id="VDM.235" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.236" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.237" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="fac" ownerScope="instance" visibility="public" xmi:id="VDM.238" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.239" type="VDM.4"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.240" type="VDM.4"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="log" ownerScope="instance" visibility="public" xmi:id="VDM.241" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.242" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.243" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="sqrt" ownerScope="instance" visibility="public" xmi:id="VDM.244" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.245" type="VDM.6"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.246" type="VDM.6"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="pi_f" ownerScope="instance" visibility="public" xmi:id="VDM.247" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.248" type="VDM.6"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="VDMUtil" visibility="public" xmi:id="VDM.18" xmi:type="uml:Class">
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="classname" ownerScope="instance" visibility="public" xmi:id="VDM.249" xmi:type="uml:Operation">
+            <ownedParameter name="s" direction="in" xmi:id="VDM.250" type="VDM.8"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.251" type="VDM.5"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="get_file_pos" ownerScope="instance" visibility="public" xmi:id="VDM.252" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.253" type="VDM.8"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="set2seq" ownerScope="instance" visibility="public" xmi:id="VDM.254" xmi:type="uml:Operation">
+            <ownedParameter name="x" direction="in" xmi:id="VDM.255" type="VDM.8"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.256" type="VDM.8"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="val2seq_of_char" ownerScope="instance" visibility="public" xmi:id="VDM.257" xmi:type="uml:Operation">
+            <ownedParameter name="x" direction="in" xmi:id="VDM.258" type="VDM.8"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.259" type="VDM.5"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="true" name="seq_of_char2val" ownerScope="instance" visibility="public" xmi:id="VDM.260" xmi:type="uml:Operation">
+            <ownedParameter name="s" direction="in" xmi:id="VDM.261" type="VDM.5"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.262" type="VDM.8"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="Celula" visibility="public" xmi:id="VDM.12" xmi:type="uml:Class">
+          <ownedAttribute name="simbolo" ownerScope="instance" isReadOnly="false" isStatic="false" visibility="private" xmi:id="VDM.263" xmi:type="uml:Property" isOrdered="false">
+            <lowerValue value="1" xmi:id="VDM.264" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="1" xmi:id="VDM.265" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="VDM.5"/>
+          </ownedAttribute>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="setSimbolo" ownerScope="instance" visibility="public" xmi:id="VDM.266" xmi:type="uml:Operation">
+            <ownedParameter name="simb" direction="in" xmi:id="VDM.267" type="VDM.5"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="getSimbolo" ownerScope="instance" visibility="public" xmi:id="VDM.268" xmi:type="uml:Operation">
+            <ownedParameter name="return" direction="return" xmi:id="VDM.269" type="VDM.5"/>
+          </ownedOperation>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="Celula" ownerScope="instance" visibility="public" xmi:id="VDM.270" xmi:type="uml:Operation">
+            <ownedParameter name="simb" direction="in" xmi:id="VDM.271" type="VDM.5"/>
+            <ownedParameter name="return" direction="return" xmi:id="VDM.272" type="VDM.12"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="TestTabuleiro" visibility="public" xmi:id="VDM.20" xmi:type="uml:Class">
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaColocaPeca" ownerScope="instance" visibility="public" xmi:id="VDM.273" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaAddToPosOcupadas" ownerScope="instance" visibility="public" xmi:id="VDM.274" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="runAllTabuleiroTests" ownerScope="instance" visibility="public" xmi:id="VDM.275" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaTabuleiro" ownerScope="instance" visibility="public" xmi:id="VDM.276" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaVerificaMultiplicador" ownerScope="instance" visibility="public" xmi:id="VDM.277" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaCelOcupada" ownerScope="instance" visibility="public" xmi:id="VDM.278" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="testaColocaMulti" ownerScope="instance" visibility="public" xmi:id="VDM.279" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="AssertTrue" ownerScope="instance" visibility="public" xmi:id="VDM.280" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.281" type="VDM.3"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="Posicao" visibility="public" xmi:id="VDM.19" xmi:type="uml:Class"/>
+        <ownedMember isAbstract="false" isActive="false" isLeaf="false" name="TestAll" visibility="public" xmi:id="VDM.21" xmi:type="uml:Class">
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="runAllTests" ownerScope="instance" visibility="public" xmi:id="VDM.282" xmi:type="uml:Operation"/>
+          <ownedOperation isAbstract="false" isLeaf="false" isQuery="false" name="AssertTrue" ownerScope="instance" visibility="public" xmi:id="VDM.283" xmi:type="uml:Operation">
+            <ownedParameter name="a" direction="in" xmi:id="VDM.284" type="VDM.3"/>
+          </ownedOperation>
+        </ownedMember>
+        <ownedMember isAbstract="false" isDerived="false" isLeaf="false" name="" xmi:id="VDM.285" xmi:type="uml:Association">
+          <ownedEnd aggregation="none" association="VDM.285" isNavigable="false" name="" visibility="private" xmi:id="VDM.286" xmi:type="uml:Property">
+            <type xmi:idref="VDM.13"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.286"/>
+          <ownedEnd aggregation="none" association="VDM.285" isNavigable="true" name="mao" visibility="private" xmi:id="VDM.287" xmi:type="uml:Property" isOrdered="true" isStatic="false">
+            <lowerValue value="0" xmi:id="VDM.288" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="*" xmi:id="VDM.289" xmi:type="uml:LiteralString"/>
+            <type xmi:idref="VDM.10"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.287"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isDerived="false" isLeaf="false" name="" xmi:id="VDM.290" xmi:type="uml:Association">
+          <ownedEnd aggregation="none" association="VDM.290" isNavigable="false" name="" visibility="private" xmi:id="VDM.291" xmi:type="uml:Property">
+            <type xmi:idref="VDM.16"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.291"/>
+          <ownedEnd aggregation="none" association="VDM.290" isNavigable="true" name="baralho" visibility="private" xmi:id="VDM.292" xmi:type="uml:Property" isOrdered="true" isStatic="false">
+            <lowerValue value="0" xmi:id="VDM.293" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="*" xmi:id="VDM.294" xmi:type="uml:LiteralString"/>
+            <type xmi:idref="VDM.10"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.292"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isDerived="false" isLeaf="false" name="" xmi:id="VDM.295" xmi:type="uml:Association">
+          <ownedEnd aggregation="none" association="VDM.295" isNavigable="false" name="" visibility="private" xmi:id="VDM.296" xmi:type="uml:Property">
+            <type xmi:idref="VDM.15"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.296"/>
+          <ownedEnd aggregation="none" association="VDM.295" isNavigable="true" name="tabuleiro" visibility="private" xmi:id="VDM.297" xmi:type="uml:Property" isOrdered="true" isStatic="false">
+            <lowerValue value="0" xmi:id="VDM.298" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="*" xmi:id="VDM.299" xmi:type="uml:LiteralString"/>
+            <type xmi:idref="VDM.12"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.297"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isDerived="false" isLeaf="false" name="" xmi:id="VDM.300" xmi:type="uml:Association">
+          <ownedEnd aggregation="none" association="VDM.300" isNavigable="false" name="" visibility="private" xmi:id="VDM.301" xmi:type="uml:Property">
+            <type xmi:idref="VDM.15"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.301"/>
+          <ownedEnd aggregation="none" association="VDM.300" isNavigable="true" name="posicoesOcupadas" visibility="private" xmi:id="VDM.302" xmi:type="uml:Property" isOrdered="false" isStatic="false">
+            <lowerValue value="0" xmi:id="VDM.303" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="*" xmi:id="VDM.304" xmi:type="uml:LiteralString"/>
+            <type xmi:idref="VDM.19"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.302"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isDerived="false" isLeaf="false" name="" xmi:id="VDM.305" xmi:type="uml:Association">
+          <ownedEnd aggregation="none" association="VDM.305" isNavigable="false" name="" visibility="private" xmi:id="VDM.306" xmi:type="uml:Property">
+            <type xmi:idref="VDM.16"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.306"/>
+          <ownedEnd aggregation="none" association="VDM.305" isNavigable="true" name="jogadores" visibility="private" xmi:id="VDM.307" xmi:type="uml:Property" isOrdered="true" isStatic="false">
+            <lowerValue value="0" xmi:id="VDM.308" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="*" xmi:id="VDM.309" xmi:type="uml:LiteralString"/>
+            <type xmi:idref="VDM.13"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.307"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isDerived="false" isLeaf="false" name="" xmi:id="VDM.310" xmi:type="uml:Association">
+          <ownedEnd aggregation="none" association="VDM.310" isNavigable="false" name="" visibility="private" xmi:id="VDM.311" xmi:type="uml:Property">
+            <type xmi:idref="VDM.16"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.311"/>
+          <ownedEnd aggregation="none" association="VDM.310" isNavigable="true" name="tabuleiro" visibility="private" xmi:id="VDM.312" xmi:type="uml:Property" isOrdered="false" isStatic="false">
+            <lowerValue value="1" xmi:id="VDM.313" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="1" xmi:id="VDM.314" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="VDM.15"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.312"/>
+        </ownedMember>
+        <ownedMember isAbstract="false" isDerived="false" isLeaf="false" name="" xmi:id="VDM.315" xmi:type="uml:Association">
+          <ownedEnd aggregation="none" association="VDM.315" isNavigable="false" name="" visibility="private" xmi:id="VDM.316" xmi:type="uml:Property">
+            <type xmi:idref="VDM.16"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.316"/>
+          <ownedEnd aggregation="none" association="VDM.315" isNavigable="true" name="dicionario" visibility="private" xmi:id="VDM.317" xmi:type="uml:Property" isOrdered="false" isStatic="false">
+            <lowerValue value="0" xmi:id="VDM.318" xmi:type="uml:LiteralInteger"/>
+            <upperValue value="*" xmi:id="VDM.319" xmi:type="uml:LiteralString"/>
+            <type xmi:idref="VDM.9"/>
+          </ownedEnd>
+          <memberEnd xmi:idref="VDM.317"/>
+        </ownedMember>
+        <packagedElement xmi:type="uml:Dependency" visibility="public" xmi:id="VDM.320" supplier="VDM.16" client="VDM.9"/>
+        <packagedElement xmi:type="uml:Dependency" visibility="public" xmi:id="VDM.321" supplier="VDM.15" client="VDM.19"/>
+      </ownedMember>
+    </uml:Model>
+    <xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+      <elements/>
+      <diagrams/>
+      <connectors>
+        <connector xmi:idref="VDM.296">
+          <properties ea_type="Association" direction="Unspecified"/>
+        </connector>
+        <connector xmi:idref="VDM.316">
+          <properties ea_type="Association" direction="Unspecified"/>
+        </connector>
+        <connector xmi:idref="VDM.286">
+          <properties ea_type="Association" direction="Unspecified"/>
+        </connector>
+        <connector xmi:idref="VDM.301">
+          <properties ea_type="Association" direction="Unspecified"/>
+        </connector>
+        <connector xmi:idref="VDM.306">
+          <properties ea_type="Association" direction="Unspecified"/>
+        </connector>
+        <connector xmi:idref="VDM.311">
+          <properties ea_type="Association" direction="Unspecified"/>
+        </connector>
+        <connector xmi:idref="VDM.291">
+          <properties ea_type="Association" direction="Unspecified"/>
+        </connector>
+        <connector xmi:idref="VDM.295">
+          <target xmi:idref="VDM.15">
+            <constraints qualifier="String"/>
+          </target>
+        </connector>
+        <connector xmi:idref="VDM.321">
+          <source xmi:idref="VDM.19"/>
+          <target xmi:idref="VDM.15"/>
+          <properties ea_type="Nesting" direction="Source -&gt; Destination"/>
+        </connector>
+        <connector xmi:idref="VDM.320">
+          <source xmi:idref="VDM.9"/>
+          <target xmi:idref="VDM.16"/>
+          <properties ea_type="Nesting" direction="Source -&gt; Destination"/>
+        </connector>
+      </connectors>
+    </xmi:Extension>
+  </xmi:XMI>

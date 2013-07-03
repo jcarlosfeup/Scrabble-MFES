@@ -1,0 +1,116 @@
+class Jogador 
+	
+
+	instance variables 
+		
+		private pontos: nat := 0;
+		private id: nat := 0;
+		--private orientacao: char := ' ';
+		private mao: seq of Peca := [];
+		
+		inv len mao <= 7;
+		inv id >= 0;
+		inv pontos >= 0;
+		--inv orientacao in set {'S','E'};
+	
+	operations 
+		
+		public Jogador : nat  ==> Jogador
+			Jogador(pont) == (pontos := pont
+			-- TODO atribuir mao aleatoria ao jogador
+			);
+			
+		public getID : () ==> nat
+			getID() == return id;
+			
+		public setID : nat ==> ()
+			setID(id_novo) == id := id_novo;
+		
+		public getPontos : () ==> nat
+			getPontos() == return pontos;
+			
+		public setPontos : nat ==> ()
+			setPontos(pts) == pontos := pts;
+			
+		public getMao : () ==> seq of Peca
+			getMao() == return mao;
+			
+		
+		public setMao: seq of Peca ==> ()
+			setMao(nova_mao) == mao := nova_mao
+			pre nova_mao <> mao;
+			
+		
+		public randomMao :  () ==> seq of Peca
+       		randomMao() == (        
+               dcl n :nat;
+               dcl tmp : seq of Peca := [];
+            (        
+           for i = 0 to len mao -1 by 1 do
+           n := i;
+          -- n := getRandom();        
+           tmp := tmp ^ [mao(n)]); 
+           --mao(i));
+                       
+           return tmp;
+           
+           );
+           
+          
+           
+           -- TODO cria mao (chamá-la no constructor)
+           -- TODO shuffle mao
+           
+           -- verifica se a letra se encontra na mão
+          public verificaLetraMao: char * nat1 ==> bool 
+          			verificaLetraMao(letra,pos) ==
+          			(
+          			
+          			dcl result : bool := false;
+          			
+          				if( mao(pos).getLetra() = letra)
+          						then result := true;
+          				
+          				return result;	
+          				
+          					
+          			)
+          			pre pos > 0 and pos <= 7 ; 
+          			
+          			
+          			
+          public trocaLetraMao: char * Peca ==> ()
+          		trocaLetraMao(letra_p_trocar,nova_peca) == (
+          		
+          			
+          			dcl tam_mao : nat := len mao;
+          			dcl nova_mao : seq of Peca := [];
+          			dcl i : nat := 1;
+          			
+          			while  i <= tam_mao do 
+          			(
+          				if(verificaLetraMao(letra_p_trocar,i) = true )
+          				
+          					then skip
+          				else nova_mao := nova_mao^[mao(i)];
+          				
+          				i := i+1
+          			);
+          			
+          			nova_mao := nova_mao^[nova_peca];
+          			
+          			setMao(nova_mao);
+          		);
+          	   
+         
+           
+           
+          -- public getRandom: () ==> nat1
+            --  getRandom() == (
+             -- || (return 0, return 1, return 2, return 3, return 4, return 5, return 6)
+             -- );
+ 
+		
+		
+		
+end Jogador

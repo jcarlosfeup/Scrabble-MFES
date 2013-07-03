@@ -1,0 +1,26 @@
+class Celula 
+	
+
+	instance variables 
+		
+		private simbolo : char; 
+		
+		inv simbolo  in set {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','W','Z','#','*','$','%','.',' ','_'};
+	
+	operations 
+		-- As celulas são constituidos por casas normais e por casas com bonus
+		public Celula : char ==> Celula
+			Celula(simb) == (
+			simbolo:= simb;
+			return self)
+			post simbolo = simb;
+	
+		-- As casas normais são representadas por ' ' e os bonus podem ser D(2xpont),T(3xpont),Q(4x)
+		public getSimbolo : () ==> char
+			getSimbolo() == return simbolo;
+
+		public setSimbolo: char  ==> ()
+			setSimbolo(simb) == (
+				simbolo := simb);
+		
+end Celula

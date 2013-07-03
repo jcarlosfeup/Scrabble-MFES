@@ -1,0 +1,609 @@
+class Jogo 
+	
+	types 
+		public String = seq of char;
+	
+	instance variables 
+		
+		private baralho : seq of Peca := [];
+		private dicionario : set of String := {};
+		private jogadores : seq of Jogador := [];
+		private tabuleiro : Tabuleiro;
+		--1 se e a vez do jogador1 jogar, 2 se e a vez do jogador 2
+		private vez : nat1 := 1;
+		
+	inv len baralho <= 120;
+	inv len jogadores <= 2;
+	inv vez = 1 or vez = 2; 
+	
+	operations 
+		 
+		 public Jogo : () ==> Jogo
+		 		Jogo() == (
+		 		
+		 		criar_baralho();
+		 		tabuleiro := new Tabuleiro();
+		 		
+		 		return self;
+		 	);
+		 		
+		 		
+		 
+		public Jogo :  seq of Jogador ==> Jogo
+               Jogo(jogs) == (
+               
+           	   jogadores := jogs ;
+           	   tabuleiro := new Tabuleiro();
+               criar_baralho();
+               
+               return self;
+          );
+               
+        public getVez: () ==> nat1
+        		getVez() == return vez;
+        		
+         public setVez: nat1 ==> ()
+        		setVez(n_vez) == vez := n_vez;
+        				
+        public getDicionario: () ==> set of String
+			    getDicionario() == return dicionario;
+		
+		-- o set que e passado como parametro e gerado por uma funcao em Java	    
+		public setDicionario: set of String ==> ()
+			    setDicionario(dic) ==dicionario := dic;
+			    
+		public getTabuleiro: () ==> Tabuleiro
+				getTabuleiro() == return tabuleiro;
+				
+				
+		public setTabuleiro: Tabuleiro ==> ()
+					setTabuleiro(tab) == tabuleiro := tab;
+			    	     		       
+			
+		public getJogadores: () ==> seq of Jogador
+			    getJogadores() == return jogadores;
+			    
+		public setJogadores: seq of Jogador ==> ()
+			    setJogadores(jogs) ==jogadores := jogs;
+			    	     
+		
+		public getBaralho: () ==> seq of Peca 
+               getBaralho() == return baralho;
+		
+		public setBaralho: seq of Peca ==> ()
+       		setBaralho(bar) == baralho := bar;
+		
+		public criar_baralho: () ==> ()
+				criar_baralho() == (
+	        
+            dcl peca1 : Peca := new Peca('A',  1);
+            dcl peca2 : Peca := new Peca('A',  1);
+            dcl peca3 : Peca := new Peca('A',  1);
+            dcl peca4 : Peca := new Peca('A',  1);
+            dcl peca5 : Peca := new Peca('A',  1);
+            dcl peca6 : Peca := new Peca('A',  1);
+            dcl peca7 : Peca := new Peca('A',  1);
+            dcl peca8 : Peca := new Peca('A',  1);
+            dcl peca9 : Peca := new Peca('A',  1);
+            dcl peca10 : Peca := new Peca('A', 1);
+            dcl peca11 : Peca := new Peca('A', 1);
+            dcl peca12 : Peca := new Peca('A', 1);
+            dcl peca13 : Peca := new Peca('A', 1);
+            dcl peca14 : Peca := new Peca('A', 1);
+            
+            dcl peca15 : Peca := new Peca('B', 3);
+            dcl peca16 : Peca := new Peca('B', 3);
+            dcl peca17 : Peca := new Peca('B', 3);
+            
+            dcl peca18 : Peca := new Peca('C', 2);
+            dcl peca19 : Peca := new Peca('C', 2);
+            dcl peca20 : Peca := new Peca('C', 2);
+            dcl peca21 : Peca := new Peca('C', 2);
+            
+            dcl peca22 : Peca := new Peca('Ç', 3);
+            dcl peca23 : Peca := new Peca('Ç', 3);
+            
+            dcl peca24 : Peca := new Peca('D', 2);
+            dcl peca25 : Peca := new Peca('D', 2);
+            dcl peca26 : Peca := new Peca('D', 2);
+            dcl peca27 : Peca := new Peca('D', 2);
+            dcl peca28 : Peca := new Peca('D', 2);
+            
+            dcl peca29 : Peca := new Peca('E', 1);
+            dcl peca30 : Peca := new Peca('E', 1);
+            dcl peca31 : Peca := new Peca('E', 1);
+            dcl peca32 : Peca := new Peca('E', 1);
+            dcl peca33 : Peca := new Peca('E', 1);
+            dcl peca34 : Peca := new Peca('E', 1);
+            dcl peca35 : Peca := new Peca('E', 1);
+            dcl peca36 : Peca := new Peca('E', 1);
+            dcl peca37 : Peca := new Peca('E', 1);
+            dcl peca38 : Peca := new Peca('E', 1);
+            dcl peca39 : Peca := new Peca('E', 1);
+            
+            dcl peca40 : Peca := new Peca('F', 4);
+            dcl peca41 : Peca := new Peca('F', 4);
+            
+            dcl peca42 : Peca := new Peca('G', 4);
+            dcl peca43 : Peca := new Peca('G', 4);
+        
+            dcl peca44 : Peca := new Peca('H', 4);
+            dcl peca45 : Peca := new Peca('H', 4);
+        
+            dcl peca46 : Peca := new Peca('I', 1);
+            dcl peca47 : Peca := new Peca('I', 1);
+            dcl peca48 : Peca := new Peca('I', 1);
+            dcl peca49 : Peca := new Peca('I', 1);
+            dcl peca50 : Peca := new Peca('I', 1);
+            dcl peca51 : Peca := new Peca('I', 1);
+            dcl peca52 : Peca := new Peca('I', 1);
+            dcl peca53 : Peca := new Peca('I', 1);
+            dcl peca54 : Peca := new Peca('I', 1);
+            dcl peca55 : Peca := new Peca('I', 1);
+            
+            dcl peca56 : Peca := new Peca('J', 5);
+            dcl peca57 : Peca := new Peca('J', 5);
+        
+            dcl peca58 : Peca := new Peca('L', 2);
+            dcl peca59 : Peca := new Peca('L', 2);
+            dcl peca60 : Peca := new Peca('L', 2);
+            dcl peca61 : Peca := new Peca('L', 2);
+            dcl peca62 : Peca := new Peca('L', 2);
+            
+            dcl peca63 : Peca := new Peca('M', 1);
+            dcl peca64 : Peca := new Peca('M', 1);
+            dcl peca65 : Peca := new Peca('M', 1);
+            dcl peca66 : Peca := new Peca('M', 1);
+            dcl peca67 : Peca := new Peca('M', 1);
+            dcl peca68 : Peca := new Peca('M', 1);
+        
+            dcl peca69 : Peca := new Peca('N', 3);
+            dcl peca70 : Peca := new Peca('N', 3);
+            dcl peca71 : Peca := new Peca('N', 3);
+            dcl peca72 : Peca := new Peca('N', 3);
+            
+            dcl peca73 : Peca := new Peca('O', 1);
+            dcl peca74 : Peca := new Peca('O', 1);
+            dcl peca75 : Peca := new Peca('O', 1);
+            dcl peca76 : Peca := new Peca('O', 1);
+            dcl peca77 : Peca := new Peca('O', 1);
+            dcl peca78 : Peca := new Peca('O', 1);
+            dcl peca79 : Peca := new Peca('O', 1);
+            dcl peca80 : Peca := new Peca('O', 1);
+            dcl peca81 : Peca := new Peca('O', 1);
+            dcl peca82 : Peca := new Peca('O', 1);
+            
+            dcl peca83 : Peca := new Peca('P', 2);
+            dcl peca84 : Peca := new Peca('P', 2);
+            dcl peca85 : Peca := new Peca('P', 2);
+            dcl peca86 : Peca := new Peca('P', 2);
+        
+            dcl peca87 : Peca := new Peca('Q', 6);
+            
+            dcl peca88 : Peca := new Peca('R', 1);
+            dcl peca89 : Peca := new Peca('R', 1);
+            dcl peca90 : Peca := new Peca('R', 1);
+            dcl peca91 : Peca := new Peca('R', 1);
+            dcl peca92 : Peca := new Peca('R', 1);
+            dcl peca93 : Peca := new Peca('R', 1);
+        
+            dcl peca94 : Peca := new Peca('S', 1);
+            dcl peca95 : Peca := new Peca('S', 1);
+            dcl peca96 : Peca := new Peca('S', 1);
+            dcl peca97 : Peca := new Peca('S', 1);
+            dcl peca98 : Peca := new Peca('S', 1);
+            dcl peca99 : Peca := new Peca('S', 1);
+            dcl peca100 : Peca := new Peca('S', 1);
+            dcl peca101 : Peca := new Peca('S', 1);
+        
+            dcl peca102 : Peca := new Peca('T', 1);
+            dcl peca103 : Peca := new Peca('T', 1);
+            dcl peca104 : Peca := new Peca('T', 1);
+            dcl peca105 : Peca := new Peca('T', 1);
+            dcl peca106 : Peca := new Peca('T', 1);
+            
+            dcl peca107 : Peca := new Peca('U', 1);
+            dcl peca108 : Peca := new Peca('U', 1);
+            dcl peca109 : Peca := new Peca('U', 1);
+            dcl peca110 : Peca := new Peca('U', 1);
+            dcl peca111 : Peca := new Peca('U', 1);
+            dcl peca112 : Peca := new Peca('U', 1);
+            dcl peca113 : Peca := new Peca('U', 1);
+            
+            dcl peca114 : Peca := new Peca('V', 4);
+            dcl peca115 : Peca := new Peca('V', 4);
+            
+            dcl peca116 : Peca := new Peca('X', 8);
+            
+            dcl peca117 : Peca := new Peca('Z', 8);
+            
+            dcl peca118 : Peca := new Peca('_',0);
+            dcl peca119 : Peca := new Peca('_',0);
+            dcl peca120 : Peca := new Peca('_',0);
+            
+            baralho := baralho^[peca1];
+            baralho := baralho^[peca2];
+            baralho := baralho^[peca3];
+            baralho := baralho^[peca4];
+            baralho := baralho^[peca5];
+            baralho := baralho^[peca6];
+            baralho := baralho^[peca7];
+            baralho := baralho^[peca8];
+            baralho := baralho^[peca9];
+            baralho := baralho^[peca10];
+            baralho := baralho^[peca11];
+            baralho := baralho^[peca12];
+            baralho := baralho^[peca13];
+            baralho := baralho^[peca14];
+            baralho := baralho^[peca15];
+            baralho := baralho^[peca16];
+            baralho := baralho^[peca17];
+            baralho := baralho^[peca18];
+            baralho := baralho^[peca19];
+            baralho := baralho^[peca20];
+            baralho := baralho^[peca21];
+            baralho := baralho^[peca22];
+            baralho := baralho^[peca23];
+            baralho := baralho^[peca24];
+            baralho := baralho^[peca25];
+            baralho := baralho^[peca26];
+            baralho := baralho^[peca27];
+            baralho := baralho^[peca28];
+            baralho := baralho^[peca29];
+            baralho := baralho^[peca30];
+            baralho := baralho^[peca31];
+            baralho := baralho^[peca32];
+            baralho := baralho^[peca33];
+            baralho := baralho^[peca34];
+            baralho := baralho^[peca35];
+            baralho := baralho^[peca36];
+            baralho := baralho^[peca37];
+            baralho := baralho^[peca38];
+            baralho := baralho^[peca39];
+            baralho := baralho^[peca40];
+            baralho := baralho^[peca41];
+            baralho := baralho^[peca42];
+            baralho := baralho^[peca43];
+            baralho := baralho^[peca44];
+            baralho := baralho^[peca45];
+            baralho := baralho^[peca46];
+            baralho := baralho^[peca47];
+            baralho := baralho^[peca48];
+            baralho := baralho^[peca49];
+            baralho := baralho^[peca50];
+            baralho := baralho^[peca51];
+            baralho := baralho^[peca52];
+            baralho := baralho^[peca53];
+            baralho := baralho^[peca54];
+            baralho := baralho^[peca55];
+            baralho := baralho^[peca56];
+            baralho := baralho^[peca57];
+            baralho := baralho^[peca58];
+            baralho := baralho^[peca59];
+            baralho := baralho^[peca60];
+            baralho := baralho^[peca61];
+            baralho := baralho^[peca62];
+            baralho := baralho^[peca63];
+            baralho := baralho^[peca64];
+            baralho := baralho^[peca65];
+            baralho := baralho^[peca66];
+            baralho := baralho^[peca67];
+            baralho := baralho^[peca68];
+            baralho := baralho^[peca69];
+            baralho := baralho^[peca70];
+            baralho := baralho^[peca71];
+            baralho := baralho^[peca72];
+            baralho := baralho^[peca73];
+            baralho := baralho^[peca74];
+            baralho := baralho^[peca75];
+            baralho := baralho^[peca76];
+            baralho := baralho^[peca77];
+            baralho := baralho^[peca78];
+            baralho := baralho^[peca79];
+            baralho := baralho^[peca80];
+            baralho := baralho^[peca81];
+            baralho := baralho^[peca82];
+            baralho := baralho^[peca83];
+            baralho := baralho^[peca84];
+            baralho := baralho^[peca85];
+            baralho := baralho^[peca86];
+            baralho := baralho^[peca87];
+            baralho := baralho^[peca88];
+            baralho := baralho^[peca89];
+            baralho := baralho^[peca90];
+            baralho := baralho^[peca91];
+            baralho := baralho^[peca92];
+            baralho := baralho^[peca93];
+            baralho := baralho^[peca94];
+            baralho := baralho^[peca95];
+            baralho := baralho^[peca96];
+            baralho := baralho^[peca97];
+            baralho := baralho^[peca98];
+            baralho := baralho^[peca99];
+            baralho := baralho^[peca100];
+            baralho := baralho^[peca101];
+            baralho := baralho^[peca102];
+            baralho := baralho^[peca103];
+            baralho := baralho^[peca104];
+            baralho := baralho^[peca105];
+            baralho := baralho^[peca106];
+            baralho := baralho^[peca107];
+            baralho := baralho^[peca108];
+            baralho := baralho^[peca109];
+            baralho := baralho^[peca110];
+            baralho := baralho^[peca111];
+            baralho := baralho^[peca112];
+            baralho := baralho^[peca113];
+            baralho := baralho^[peca114];
+            baralho := baralho^[peca115];
+            baralho := baralho^[peca116];
+            baralho := baralho^[peca117];
+            baralho := baralho^[peca118];
+            baralho := baralho^[peca119];
+            baralho := baralho^[peca120];
+            
+           
+	);	
+	
+	public criaJogadores: seq of Peca * seq of Peca ==> ()
+       criaJogadores(m1,m2) == (        
+       
+	       dcl jog1 : Jogador := new Jogador(1);
+	       dcl jog2 : Jogador := new Jogador(2);
+	               
+	       jog1.setMao(m1);
+	       jog2.setMao(m2);
+	      
+	       jogadores := jogadores ^ [jog1,jog2];
+      );
+      
+      
+      public criaMaoJoador: () ==> seq of Peca
+      			criaMaoJoador() == (
+      			
+      				dcl mao : seq of Peca := [];
+      				dcl i : nat := 1;
+      				
+      				while i <= 7 do
+      				(
+      					
+      					mao := mao^[baralho(i)];
+      					
+      					i:= i +1;
+      				);
+      				
+      				return mao;
+      				
+      			);
+      			
+      			
+      			
+      
+      public preencheMao: nat ==> ()
+      	 preencheMao (i) == (
+      
+      	   dcl tmp : seq of Peca := jogadores(i).getMao();
+	       
+	       if(len jogadores(i).getMao() < 7) then (
+	       while(len tmp < 7) do 
+	               
+	               (tmp := tmp ^ [baralho(len baralho-1)];
+	               jogadores(i).setMao(tmp);
+	       )
+       	);
+       );	
+       
+       public actualizaPontos: nat * Jogador * nat * nat ==> ()
+       		actualizaPontos(pts_adicionar, jog, pos1, pos2) == (
+       
+		       	dcl tab : Tabuleiro := new Tabuleiro();
+		               
+				if tab.verificaMultiplicador(pos1, pos2) then (
+		       
+               		dcl cel : Celula := new Celula(' ');
+                 	dcl simbolo : char := ' ';
+          			-- cel := tab(mk_Tabuleiro`Posicao(pos1,pos2));
+                  	simbolo := cel.getSimbolo();
+       
+       			if simbolo = '#' then jog.setPontos(jog.getPontos()+ 3 * pts_adicionar);
+   				if simbolo = '*' then jog.setPontos(jog.getPontos()+ 2 * pts_adicionar);
+		        --if simbolo = '%' then jog.setPontos(og.getPontos()+  * pts_adicionar);
+		        --if simbolo = '$' then jog.setPontos(jog.getPontos()+ * pts_adicionar);        
+             ) else 
+       
+       		jog.setPontos(jog.getPontos()+pts_adicionar);        
+      	);
+		
+		public comparaPecas: Peca * Peca ==> bool
+			comparaPecas(peca1,peca2) == (
+				
+				dcl letra1 : char := peca1.getLetra();
+				dcl letra2 : char := peca2.getLetra();
+				dcl result : bool := false;
+				
+				if(letra1 = letra2)
+					then  result := true
+				else result := false;
+					 
+				return result;
+			);
+			
+			
+		-- TRUE se palavras iguais, senão FALSE	
+		public comparaPalavras: String * String ==> bool
+					comparaPalavras(pal1,pal2) == (
+					
+					dcl tam_pal1 : nat := len pal1;
+					dcl tam_pal2 : nat := len pal2;
+					dcl i : nat1 := 1;
+					
+					if(tam_pal1 <> tam_pal2) then return false;
+					
+					while(i <= tam_pal1) do
+					(
+						if(pal1(i) <> pal2(i)) 
+							then return false;
+							
+						i := i+1;
+					
+					);
+					
+					return true;
+				);	
+			
+		-- RETURN true, se a palavra existe no dicionário
+		 public verificaPalDicionario: String * set of seq of char ==> bool
+					verificaPalDicionario(palavra,dicion) == (
+					
+					dcl result : bool := false;
+					
+					result := palavra in set dicion;
+					
+					return result;
+				);
+				
+		-- recebe o jogador que vai passar a vez		
+		public passarVez: Jogador ==> ()
+				passarVez(jog) == (
+				
+				if(jog.getID() = jogadores(1).getID())
+					then setVez(2);
+				
+				if(jog.getID() = jogadores(2).getID())
+					then setVez(1);
+				
+				);
+				
+		public retiraPecaMao: Jogador * Peca ==> ()
+					retiraPecaMao(jogador,pec) == (
+					
+					dcl mao_jog : seq of Peca := jogador.getMao();
+					dcl tam_mao : nat := len jogador.getMao();
+					dcl nova_mao : seq of Peca := [];
+					dcl letra_p_retirar : char := pec.getLetra();
+					dcl i : nat1 := 1;
+					
+					while(i <= tam_mao) do (
+          			
+          			if(jogador.verificaLetrPosMao(letra_p_retirar,i) = true )
+          				then skip
+          				else nova_mao := nova_mao^[mao_jog(i)];
+          				
+          				i := i+1;
+          			);
+          			
+          			jogador.setMao(nova_mao);
+					
+			);
+			
+			
+			public retiraPecaBaralho: nat ==> Peca
+					retiraPecaBaralho(pos_aleat) == (
+					
+					dcl baralho : seq of Peca;
+					dcl tam_bar : nat := len getBaralho();
+					dcl baralho_act : seq of Peca := [];
+					dcl nao_procura_mais : bool := false;
+					dcl peca_ret : Peca;
+					dcl i : nat1 := 1;
+					
+					baralho := getBaralho();
+					peca_ret := baralho(pos_aleat);
+					 
+					while(i <= tam_bar) do (
+	          			
+		          		if(	peca_ret.getLetra() = baralho(i).getLetra() and nao_procura_mais = false)
+		          				then nao_procura_mais := true
+		          				
+		          				else baralho_act := baralho_act^[baralho(i)];
+	          				
+	          				i := i+1;
+	          		);
+	          		
+	          		
+					setBaralho(baralho_act);
+					
+					return peca_ret;
+				);
+		
+		-- jogada que verifica se um jogador pode colocar uma palavra no tabuleiro		
+		-- retorna um inteiro conforme a situacao
+		public jogada: Jogador * nat * nat * String * char ==>  nat
+				jogada(jogador,pos_x,pos_y,palavra,orient) == (
+				
+				-- result = 0 em caso de nao se poder colocar a palavra, 1 se sucesso
+				dcl result : nat := 0;
+				dcl dicio :  set of String;
+				dcl tabuleiro : Tabuleiro := getTabuleiro();
+				dcl mao_jogador : seq of Peca := jogador.getMao();
+				dcl i : nat1 := 1;
+				dcl j : nat1 := 1;
+				dcl k : nat1 := 1;
+				
+				dicio := getDicionario();
+				
+				-- Se a palavra que o jogador quer inserir não se encontra no dicionario retorna FALSE
+				if ( verificaPalDicionario(palavra,dicionario) = false)
+						then return 3;
+						
+				-- Vai colocar a palavra na vertical
+				-- percorre a palavra
+				while(i <= len palavra) do
+				(	
+					if(orient = 'b' or orient = 'B') then
+					(
+						
+						-- se a celula esta livre em baixo esta livre
+						if( tabuleiro.cel_ocupada(pos_x,pos_y + i) = false) then
+						(
+							while(j <= len mao_jogador) do
+							(
+								
+								if( jogador.verificaLetraMao(palavra(i)) = true) then
+								(
+									tabuleiro.colocaPeca( new Peca(palavra(i),mao_jogador(j).getPontuacao()),pos_x,pos_y+i);
+									retiraPecaMao(jogador,mao_jogador(j) );
+									result := 1;
+								);
+								
+								j := j+1;
+							);
+						
+						);
+						
+					)else(
+							-- se vai colocar a palavra na horizontal
+							if(orient = 'd' or orient = 'D') then(
+							
+								-- se a celula esta livre em baixo 
+								if( tabuleiro.cel_ocupada(pos_x+i,pos_y) = false) then
+								(
+									result := 40;
+									while(k <= len mao_jogador) do
+									(
+										if( jogador.verificaLetraMao(palavra(i)) = true) then
+										(
+											tabuleiro.colocaPeca( new Peca(palavra(i),mao_jogador(k).getPontuacao()),pos_x+i,pos_y);
+											retiraPecaMao(jogador,mao_jogador(k) );
+											result := 1;
+										);
+										k := k+1;
+									);
+								
+								);
+							);
+						
+					);
+					
+					i := i+1;
+				);
+					
+				
+				return result;
+			);	
+			
+		-- TODO criar dicionario
+		-- TODO jogada
+		-- TODO verificar tabuleiro
+		
+end Jogo
